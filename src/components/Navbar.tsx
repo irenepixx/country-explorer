@@ -9,6 +9,9 @@ const Navbar: React.FC = () => {
         <Link to="/" style={styles.link}>
           Home
         </Link>
+        <Link to="/favorites" style={styles.link}>
+          Favorites
+        </Link>
       </div>
     </nav>
   );
