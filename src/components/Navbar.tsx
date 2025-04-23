@@ -8,16 +8,12 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ onFavoritesClick }) => {
   return (
     <nav style={styles.nav}>
-      <img style={styles.logoImage} src="/earth.svg" />
-      <h2 style={styles.logo}>Country Explorer</h2>
-      <div style={styles.linksContainer}>
-        <Link to="/" style={styles.link}>
-          Home
-        </Link>
-        <span onClick={onFavoritesClick} style={styles.heart}>
-          ❤️
-        </span>
-      </div>
+      <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+        <h2 style={styles.logo}>Country Explorer</h2>
+      </Link>
+      <span onClick={onFavoritesClick} style={styles.heart}>
+        ❤️
+      </span>
     </nav>
   );
 };
