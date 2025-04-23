@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar: React.FC = () => {
   return (
     <nav style={styles.nav}>
+      <img style={styles.logoImage} src="/earth.svg" />
       <h2 style={styles.logo}>Country Explorer</h2>
       <div style={styles.linksContainer}>
         <Link to="/" style={styles.link}>
@@ -32,6 +33,12 @@ const styles = {
     flexWrap: "wrap",
     zIndex: 1000,
     boxSizing: "border-box",
+  } as React.CSSProperties,
+
+  logoImage: {
+    width: "30px",
+    height: "30px",
+    marginRight: "10px",
   } as React.CSSProperties,
 
   logo: {
