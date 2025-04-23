@@ -1,24 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Favorites from "./pages/Favorites";
-import { FavoritesProvider } from "./utils/favoritesContext";
+import Sidebar from "./components/Sidebar";
 
 const App: React.FC = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
     <Router>
-      <Navbar />
+      <Navbar onFavoritesClick={() => setIsSidebarOpen(true)} />
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/favorites"
-          element={
-            <FavoritesProvider>
-              <Favorites />
-            </FavoritesProvider>
-          }
-        />
       </Routes>
     </Router>
   );
