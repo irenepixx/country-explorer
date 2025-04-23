@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  onFavoritesClick: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onFavoritesClick }) => {
   return (
     <nav style={styles.nav}>
       <img style={styles.logoImage} src="/earth.svg" />
@@ -10,9 +14,9 @@ const Navbar: React.FC = () => {
         <Link to="/" style={styles.link}>
           Home
         </Link>
-        <Link to="/favorites" style={styles.link}>
-          Favorites
-        </Link>
+        <span onClick={onFavoritesClick} style={styles.heart}>
+          ❤️
+        </span>
       </div>
     </nav>
   );
@@ -47,6 +51,13 @@ const styles = {
     whiteSpace: "nowrap",
     flex: "1",
     textAlign: "left",
+  } as React.CSSProperties,
+
+  heart: {
+    cursor: "pointer",
+    marginLeft: "20px",
+    marginRight: "40px",
+    fontSize: "1.5rem",
   } as React.CSSProperties,
 
   linksContainer: {
