@@ -78,4 +78,26 @@ const Home: React.FC = () => {
   );
 };
 
+const styles = {
+  results: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+    gap: "20px",
+    marginTop: "20px",
+  } as React.CSSProperties,
+
+  card: {
+    border: "1px solid #ccc",
+    borderRadius: "8px",
+    padding: "10px",
+    textAlign: "center",
+  } as React.CSSProperties,
+
+  flag: {
+    width: "100%",
+    height: "auto",
+    borderRadius: "4px",
+  } as React.CSSProperties,
+};
+
 export default Home;
