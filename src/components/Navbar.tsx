@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "../../navbar.css";
 
 interface NavbarProps {
   onFavoritesClick: () => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onFavoritesClick }) => {
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = () => {
+    setClicked(true);
+    onFavoritesClick();
+    setTimeout(() => setClicked(false), 150);
+  };
+
   return (
     <nav style={styles.nav}>
       <Link to="/" style={{ textDecoration: "none", color: "white" }}>
         <h2 style={styles.logo}>Country Explorer</h2>
       </Link>
-      <span onClick={onFavoritesClick} style={styles.heart}>
-        ❤️
+      <span className="heart-icon" onClick={onFavoritesClick}>
+        ❤
       </span>
     </nav>
   );
