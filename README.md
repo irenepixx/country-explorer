@@ -4,21 +4,36 @@ This project is part of a **Frontend Web Developer coding challenge** provided b
 
 ---
 
-## 🚀 Project Overview
+## 🔧 How to access it
 
-**Country Explorer** is a simple web application that allows users to:
+- To run it locally ...
 
-- 🔍 **Search** for countries using different fields (like name or region)
-- 📃 **Display** results in a clean, user-friendly layout
-- ❌ **Delete** countries from the results list
-- ❤️ **Mark countries as favorites**
-- ⭐ **View favorites** in a separate section
+- To run it remotely ...
 
-This app uses the [RESTCountries API](https://restcountries.com/) to fetch live country data.
+## 🌐 Live Demo
+
+...
+
+## 📁 Project Structure
+
+...
 
 ---
 
-## 🛠️ Technologies Used
+## 🚀 Project Overview
+
+### **Country Explorer** is a simple web application that allows users to:
+
+-**Search** for countries using different fields (like name or region) -**Display** results in a clean, user-friendly layout -**Delete** countries from the results list -**Mark countries as favorites** -**View favorites** in a separate section
+
+Also:
+
+- **Mark** countries **visited**
+- **Mark** countries to **visit next**
+
+This app uses the [RESTCountries API](https://restcountries.com/) to fetch live country data.
+
+### 🛠️ Technologies Used
 
 - **React**
 - **JavaScript**
@@ -28,7 +43,13 @@ This app uses the [RESTCountries API](https://restcountries.com/) to fetch live 
 
 ---
 
-## 🧠 Learning Goals
+## 🌐 Project Management
+
+### 💡 Inspiration
+
+### 🧠 Challenges encountered
+
+### 🎯 Learning Goals
 
 As a frontend developer in training, this project helped me to:
 
@@ -36,15 +57,3 @@ As a frontend developer in training, this project helped me to:
 - ...
 
 ---
-
-## 🔧 How to Run Locally
-
-## ...
-
-## 🌐 Live Demo
-
-## ...
-
-## 📁 Project Structure
-
-...
