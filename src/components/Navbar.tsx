@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../../navbar.css";
 
@@ -7,14 +7,6 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onFavoritesClick }) => {
-  const [clicked, setClicked] = useState(false);
-
-  const handleClick = () => {
-    setClicked(true);
-    onFavoritesClick();
-    setTimeout(() => setClicked(false), 150);
-  };
-
   return (
     <nav style={styles.nav}>
       <Link to="/" style={{ textDecoration: "none", color: "white" }}>
@@ -44,40 +36,12 @@ const styles = {
     boxSizing: "border-box",
   } as React.CSSProperties,
 
-  logoImage: {
-    width: "30px",
-    height: "30px",
-    marginRight: "10px",
-  } as React.CSSProperties,
-
   logo: {
     margin: 0,
     fontSize: "1.5rem",
     whiteSpace: "nowrap",
     flex: "1",
     textAlign: "left",
-  } as React.CSSProperties,
-
-  heart: {
-    cursor: "pointer",
-    marginLeft: "20px",
-    marginRight: "40px",
-    fontSize: "1.5rem",
-  } as React.CSSProperties,
-
-  linksContainer: {
-    display: "flex",
-    flex: "1",
-    justifyContent: "flex-end",
-    flexWrap: "wrap",
-    gap: "15px",
-  } as React.CSSProperties,
-
-  link: {
-    color: "white",
-    textDecoration: "none",
-    fontSize: "1rem",
-    whiteSpace: "nowrap",
   } as React.CSSProperties,
 };
 
