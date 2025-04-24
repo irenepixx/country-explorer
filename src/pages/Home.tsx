@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
+import CountryCard from "../components/CountryCard";
 
 interface Country {
   name: {
     common: string;
   };
+  capital: string[];
+  region: string;
+  languages: { [key: string]: string };
+  currencies: { [key: string]: { name: string; symbol: string } };
   flags: {
     png: string;
   };
@@ -47,31 +52,40 @@ const Home: React.FC = () => {
   }, [searchTerm]);
 
   return (
-    <div style={(styles.container, styles.padding)}>
-      <div style={styles.centerText}>
-        <h1>Start Exploring</h1>
-      </div>
-      <div>
-        <p>
-          Travellers are dreamers who make their desires for adventure a
-          reality.
-        </p>
-        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+    <div id="main">
+      <div id="header" style={{ ...styles.container, ...styles.padding }}>
+        <div style={styles.centerText}>
+          <h1>START EXPLORING</h1>
+        </div>
+        <div>
+          <h2>
+            Travellers are dreamers who make their desires for adventure a
+            reality.
+          </h2>
+        </div>
+        <div>
+          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        </div>
+
+        {loading && <p>Loading...</p>}
+        {error && <p style={{ color: "red" }}>{error}</p>}
       </div>
 
-      {loading && <p>Loading...</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
-
-      <div style={styles.results}>
+      <div id="searchResults" style={styles.results}>
         {countries.map((country) => (
-          <div key={country.cca3} style={styles.card}>
-            <img
-              src={country.flags.png}
-              alt={country.name.common}
-              style={styles.flag}
-            />
-            <h3>{country.name.common}</h3>
-          </div>
+          <CountryCard
+            key={country.cca3}
+            name={country.name.common}
+            capital={country.capital?.[0] || "N/A"}
+            flagUrl={country.flags.png}
+            region={country.region}
+            languages={Object.values(country.languages || {})}
+            currencies={Object.values(country.currencies || {}).map(
+              (c) => c.name
+            )}
+            onFavorite={() => console.log("Favorited", country.name.common)}
+            onCustomList={() => console.log("Add to list", country.name.common)}
+          />
         ))}
       </div>
     </div>
@@ -87,37 +101,26 @@ const styles = {
   } as React.CSSProperties,
 
   container: {
-    transition: "margin-right 0.3s ease",
     display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
     alignItems: "center",
+    justifyContent: "center",
+    gap: "10px",
+    flexWrap: "wrap",
   } as React.CSSProperties,
 
   centerText: {
     width: "100%",
     maxWidth: "600px",
     textAlign: "center",
-    marginBottom: "30px",
   } as React.CSSProperties,
 
   results: {
     display: "flex",
     flexWrap: "wrap",
+    justifyContent: "center",
+    alignContent: "center",
+    gap: "20px",
     marginTop: "20px",
-  } as React.CSSProperties,
-
-  card: {
-    border: "1px solid #ccc",
-    borderRadius: "8px",
-    padding: "10px",
-    textAlign: "center",
-  } as React.CSSProperties,
-
-  flag: {
-    width: "100%",
-    height: "auto",
-    borderRadius: "4px",
   } as React.CSSProperties,
 };
 
