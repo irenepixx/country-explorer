@@ -7,17 +7,23 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   return (
-    <div style={{ ...styles.sidebar, right: isOpen ? 0 : "-50%" }}>
+    <div
+      style={{
+        ...styles.sidebar,
+        transform: isOpen ? "translateX(0)" : "translateX(100%)",
+      }}
+    >
       <button onClick={onClose} style={styles.closeButton}>
         ×
       </button>
-      <h2>⭐ My Lists</h2>
+
+      <h3>❤️ My Lists</h3>
       <div>
-        <h3>❤️ Favorites</h3>
+        <h4>⭐ Favorites</h4>
         <ul>{/* here favorites list */}</ul>
-        <h3>📌 Go to Next</h3>
+        <h4>📌 Go to Next</h4>
         <ul>{/* here go to next list */}</ul>
-        <h3>✈️ Already Visited</h3>
+        <h4>✈️ Already Visited</h4>
         <ul>{/* here already visited list */}</ul>
       </div>
     </div>
@@ -34,10 +40,12 @@ const styles = {
     backgroundColor: "#fff",
     borderLeft: "1px solid #ddd",
     padding: "20px",
-    transition: "right 0.3s ease-in-out",
+    transition: "transform 1s ease-in-out",
     zIndex: 1001,
     overflowY: "auto",
+    boxShadow: "-2px 0 8px rgba(0, 0, 0, 0.1)",
   } as React.CSSProperties,
+
   closeButton: {
     position: "absolute",
     top: 10,
