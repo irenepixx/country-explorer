@@ -96,6 +96,7 @@ const styles = {
   countryName: {
     margin: 0,
     fontSize: "1.5rem",
+    color: "#080054",
   } as React.CSSProperties,
 
   capital: {

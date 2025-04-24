@@ -33,21 +33,21 @@ body {
 html,
 body {
   height: auto;
+  width: 100%;
   margin: 0;
   background: #060041;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2.5em;
   line-height: 0;
   color: #ffffff;
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 1em;
   line-height: 1.1;
   color: #ffffff;
-  font-style: italic;
 }
 
 h3 {

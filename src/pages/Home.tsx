@@ -70,7 +70,7 @@ const Home: React.FC = () => {
         style={{ ...styles.container, ...styles.padding, ...styles.homeHeader }}
       >
         <div style={styles.centerText}>
-          <h1>START EXPLORING</h1>
+          <h1 style={styles.title}>START EXPLORING</h1>
         </div>
         <div style={styles.centerText}>
           <h2>
@@ -98,7 +98,7 @@ const Home: React.FC = () => {
             currencies={Object.values(country.currencies || {}).map(
               (c) => c.name
             )}
-            onFavorite={() => console.log("Favorited", country.name.common)}
+            onFavorite={() => addToFavorites(country)} // Llamamos a la función addToFavorites
             onCustomList={() => console.log("Add to list", country.name.common)}
           />
         ))}
@@ -109,7 +109,7 @@ const Home: React.FC = () => {
 
 const styles = {
   padding: {
-    paddingTop: "100px",
+    paddingTop: "50px",
     paddingLeft: "20px",
     paddingRight: "20px",
     paddingBottom: "20px",
@@ -117,22 +117,34 @@ const styles = {
 
   container: {
     display: "flex",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    gap: "10px",
-    flexWrap: "wrap",
+    gap: "20px",
+    textAlign: "center",
   } as React.CSSProperties,
 
   homeHeader: {
+    width: "calc(100vw - 40px)", // 20px de cada lado
+    margin: "0 auto",
     backgroundColor: "#080054",
     border: "20px solid #060041",
     borderRadius: "50px",
+    boxSizing: "border-box",
   } as React.CSSProperties,
 
   centerText: {
     width: "100%",
-    maxWidth: "600px",
     textAlign: "center",
+  } as React.CSSProperties,
+
+  title: {
+    fontSize: "clamp(2rem, 6vw, 4rem)",
+    margin: 0,
+    lineHeight: 1.2,
+    color: "#fff",
+    fontWeight: "bold",
+    textWrap: "balance" as any,
   } as React.CSSProperties,
 
   results: {

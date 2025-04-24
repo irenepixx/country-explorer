@@ -3,9 +3,10 @@ import React from "react";
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
+  favorites: Country[];
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, favorites }) => {
   return (
     <div
       style={{
@@ -20,7 +21,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       <h3>❤️ My Lists</h3>
       <div style={styles.lists}>
         <h4>⭐ Favorites</h4>
-        <ul>{/* here favorites list */}</ul>
+        <ul></ul>
         <h4>📌 Go to Next</h4>
         <ul>{/* here go to next list */}</ul>
         <h4>✈️ Already Visited</h4>
