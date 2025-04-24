@@ -47,8 +47,8 @@ const Home: React.FC = () => {
   }, [searchTerm]);
 
   return (
-    <div style={{ paddingTop: "100px", padding: "20px" }}>
-      <div>
+    <div style={(styles.container, styles.padding)}>
+      <div style={styles.centerText}>
         <h1>Start Exploring</h1>
       </div>
       <div>
@@ -79,10 +79,31 @@ const Home: React.FC = () => {
 };
 
 const styles = {
+  padding: {
+    paddingTop: "100px",
+    paddingLeft: "20px",
+    paddingRight: "20px",
+    paddingBottom: "20px",
+  } as React.CSSProperties,
+
+  container: {
+    transition: "margin-right 0.3s ease",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "center",
+  } as React.CSSProperties,
+
+  centerText: {
+    width: "100%",
+    maxWidth: "600px",
+    textAlign: "center",
+    marginBottom: "30px",
+  } as React.CSSProperties,
+
   results: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
-    gap: "20px",
+    display: "flex",
+    flexWrap: "wrap",
     marginTop: "20px",
   } as React.CSSProperties,
 
