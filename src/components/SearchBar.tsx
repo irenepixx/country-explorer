@@ -1,4 +1,5 @@
 import React from "react";
+import "../index.css";
 
 interface SearchBarProps {
   searchTerm: string;
@@ -46,22 +47,32 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
 const styles = {
   container: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "10px",
     marginBottom: "20px",
-    textAlign: "center",
+    flexWrap: "wrap",
   } as React.CSSProperties,
 
   dropdown: {
-    padding: "10px",
-    fontSize: "16px",
-    width: "20%",
+    width: "25%",
     maxWidth: "200px",
     borderRadius: "8px",
+    border: "1px solid transparent",
+    padding: "0.6em 1.2em",
+    color: "inherit",
+    fontSize: "1em",
+    fontWeight: "500",
+    fontFamily: "inherit",
+    cursor: "pointer",
+    transition: "border-color 0.25s",
   } as React.CSSProperties,
 
   input: {
     padding: "10px",
     fontSize: "16px",
-    width: "80%",
+    width: "50%",
     maxWidth: "500px",
   } as React.CSSProperties,
 };
