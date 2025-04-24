@@ -18,7 +18,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       </button>
 
       <h3>❤️ My Lists</h3>
-      <div>
+      <div style={styles.lists}>
         <h4>⭐ Favorites</h4>
         <ul>{/* here favorites list */}</ul>
         <h4>📌 Go to Next</h4>
@@ -37,13 +37,12 @@ const styles = {
     right: 0,
     width: "50%",
     height: "100%",
-    backgroundColor: "#fff",
-    borderLeft: "1px solid #ddd",
+    backgroundColor: "#699fc9",
+    borderLeft: "1px  #699fc9",
     padding: "20px",
     transition: "transform 1s ease-in-out",
     zIndex: 1001,
     overflowY: "auto",
-    boxShadow: "-2px 0 8px rgba(0, 0, 0, 0.1)",
   } as React.CSSProperties,
 
   closeButton: {
@@ -54,6 +53,16 @@ const styles = {
     background: "none",
     border: "none",
     cursor: "pointer",
+    color: "white",
+  } as React.CSSProperties,
+
+  lists: {
+    backgroundColor: "white",
+    borderRadius: "8px",
+    padding: "20px",
+    width: "auto",
+    height: "100%",
+    margin: "20px",
   } as React.CSSProperties,
 };
 

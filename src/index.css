@@ -32,14 +32,14 @@ body {
 
 html,
 body {
-  height: 100%;
+  height: auto;
   margin: 0;
-  background: linear-gradient(45deg, #6e6bff, #01004d);
+  background: #060041;
 }
 
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
+  line-height: 0;
   color: #ffffff;
 }
 
@@ -47,6 +47,11 @@ h2 {
   font-size: 1.5em;
   line-height: 1.1;
   color: #ffffff;
+  font-style: italic;
+}
+
+h3 {
+  color: white;
 }
 
 p {

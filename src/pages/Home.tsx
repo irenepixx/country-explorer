@@ -53,14 +53,17 @@ const Home: React.FC = () => {
 
   return (
     <div id="main">
-      <div id="header" style={{ ...styles.container, ...styles.padding }}>
+      <div
+        id="homeHeader"
+        style={{ ...styles.container, ...styles.padding, ...styles.homeHeader }}
+      >
         <div style={styles.centerText}>
           <h1>START EXPLORING</h1>
         </div>
-        <div>
+        <div style={styles.centerText}>
           <h2>
             Travellers are dreamers who make their desires for adventure a
-            reality.
+            reality
           </h2>
         </div>
         <div>
@@ -106,6 +109,12 @@ const styles = {
     justifyContent: "center",
     gap: "10px",
     flexWrap: "wrap",
+  } as React.CSSProperties,
+
+  homeHeader: {
+    backgroundColor: "#080054",
+    border: "20px solid #060041",
+    borderRadius: "50px",
   } as React.CSSProperties,
 
   centerText: {
