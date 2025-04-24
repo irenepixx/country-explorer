@@ -10,7 +10,7 @@ const Navbar: React.FC<NavbarProps> = ({ onFavoritesClick }) => {
   return (
     <nav style={styles.nav}>
       <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-        <h2 style={styles.logo}>Country Explorer</h2>
+        <h2 style={styles.logo}>🌍 Country Explorer</h2>
       </Link>
       <span className="heart-icon" onClick={onFavoritesClick}>
         ❤
@@ -26,7 +26,7 @@ const styles = {
     left: 0,
     width: "100%",
     padding: "10px 20px",
-    backgroundColor: "#333",
+    backgroundColor: "#060041",
     color: "white",
     display: "flex",
     justifyContent: "space-between",
