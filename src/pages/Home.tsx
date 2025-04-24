@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 import CountryCard from "../components/CountryCard";
+import Sidebar from "../components/Sidebar";
 
 interface Country {
   name: {
