@@ -23,6 +23,17 @@ const Home: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const [favorites, setFavorites] = useState<Country[]>([]);
+
+  const addToFavorites = (country: Country) => {
+    setFavorites((prevFavorites) => {
+      if (prevFavorites.find((item) => item.cca3 === country.cca3)) {
+        return prevFavorites;
+      }
+      return [...prevFavorites, country];
+    });
+  };
+
   useEffect(() => {
     if (!searchTerm) {
       setCountries([]);
