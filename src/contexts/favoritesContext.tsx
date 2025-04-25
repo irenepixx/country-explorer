@@ -1,6 +1,18 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { Country } from "../types/Country";
 
-const FavoritesContext = createContext<any>(null);
+interface FavoritesContextType {
+  favorites: Country[];
+  addFavorite: (country: Country) => void;
+  removeFavorite: (countryCode: string) => void;
+  isFavorite: (countryCode: string) => boolean;
+}
+
+const FavoritesContext = createContext<FavoritesContextType | undefined>(
+  undefined
+);
+
+export const useFavorites = () => useContext(FavoritesContext);
 
 export const FavoritesProvider = ({
   children,
