@@ -20,10 +20,8 @@ export const useFavorites = () => {
   return context;
 };
 
-export const FavoritesProvider = ({
+export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
-}: {
-  children: React.ReactNode;
 }) => {
   const [favorites, setFavorites] = useState<any[]>([]);
 
