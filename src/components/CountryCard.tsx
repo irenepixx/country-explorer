@@ -1,26 +1,18 @@
 import React from "react";
 import { Country } from "../types/Country";
+import { FaPlus } from "react-icons/fa";
+import FavoriteButton from "./FavoriteButton";
 
 interface CountryCardProps {
-  name: string;
-  capital: string;
-  flagUrl: string;
-  region: string;
-  languages: string[];
-  currencies: string[];
+  country: Country;
   onFavorite: () => void;
-  onCustomList: () => void;
+  isFavorite: boolean;
 }
 
-  name,
-  capital,
-  flagUrl,
-  region,
-  languages,
-  currencies,
 export const CountryCard: React.FC<CountryCardProps> = ({
+  country,
   onFavorite,
-  onCustomList,
+  isFavorite,
 }) => {
   return (
     <div className="country-card">
