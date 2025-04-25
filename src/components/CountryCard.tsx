@@ -12,13 +12,13 @@ interface CountryCardProps {
   onCustomList: () => void;
 }
 
-const CountryCard: React.FC<CountryCardProps> = ({
   name,
   capital,
   flagUrl,
   region,
   languages,
   currencies,
+export const CountryCard: React.FC<CountryCardProps> = ({
   onFavorite,
   onCustomList,
 }) => {
@@ -134,4 +134,3 @@ const styles = {
   } as React.CSSProperties,
 };
 
-export default CountryCard;

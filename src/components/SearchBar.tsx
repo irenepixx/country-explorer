@@ -9,7 +9,7 @@ interface SearchBarProps {
   onSearch: () => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({
+export const SearchBar: React.FC<SearchBarProps> = ({
   searchTerm,
   setSearchTerm,
   selectedFilter,
@@ -76,5 +76,3 @@ const styles = {
     maxWidth: "500px",
   } as React.CSSProperties,
 };
-
-export default SearchBar;
