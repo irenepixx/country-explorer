@@ -21,15 +21,15 @@ export const FavoritesProvider = ({
 }) => {
   const [favorites, setFavorites] = useState<any[]>([]);
 
-  const addFavorite = (item: any) => {
-    if (!favorites.find((fav) => fav.name.common === item.name.common)) {
-      setFavorites([...favorites, item]);
+  const addFavorite = (country: Country) => {
+    if (!favorites.find((fav) => fav.name.common === country.name.common)) {
+      setFavorites([...favorites, country]);
     }
   };
 
-  const removeFavorite = (item: any) => {
+  const removeFavorite = (country: Country) => {
     setFavorites(
-      favorites.filter((fav) => fav.name.common !== item.name.common)
+      favorites.filter((fav) => fav.name.common !== country.name.common)
     );
   };
 
@@ -41,5 +41,3 @@ export const FavoritesProvider = ({
     </FavoritesContext.Provider>
   );
 };
-
-export const useFavorites = () => useContext(FavoritesContext);
