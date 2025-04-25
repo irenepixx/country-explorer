@@ -1,49 +1,68 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../../navbar.css";
+import { FaMoon, FaSun, FaBars } from "react-icons/fa";
 import { useFavorites } from "../context/FavoritesContext";
+import Sidebar from "./Sidebar";
+import "./Navbar.css";
 
-interface NavbarProps {
-  onFavoritesClick: () => void;
-}
+const Navbar: React.FC = () => {
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme === "dark";
+  });
 
-const Navbar: React.FC<NavbarProps> = ({ onFavoritesClick }) => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { favorites } = useFavorites();
+
+  useEffect(() => {
+    document.documentElement.setAttribute(
+      "data-theme",
+      darkMode ? "dark" : "light"
+    );
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
+
+  const toggleTheme = () => {
+    setDarkMode((prev) => !prev);
+  };
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prev) => !prev);
+  };
+
   return (
-    <nav style={styles.nav}>
-      <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-        <h2 style={styles.logo}>🌍 Country Explorer</h2>
-      </Link>
-      <span className="heart-icon" onClick={onFavoritesClick}>
-        ❤
-      </span>
-    </nav>
+    <>
+      <nav className="navbar">
+        <div className="navbar-container">
+          <Link to="/" className="navbar-title">
+            Country Explorer
+          </Link>
+          <div className="navbar-actions">
+            <button
+              onClick={toggleTheme}
+              className="theme-toggle"
+              aria-label="Toggle theme"
+            >
+              {darkMode ? <FaSun /> : <FaMoon />}
+              <span>{darkMode ? "Light Mode" : "Dark Mode"}</span>
+            </button>
+            <button
+              onClick={toggleSidebar}
+              className="sidebar-toggle"
+              aria-label="Toggle sidebar"
+            >
+              <FaBars />
+            </button>
+          </div>
+        </div>
+      </nav>
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+        favorites={favorites}
+      />
+    </>
   );
-};
-
-const styles = {
-  nav: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    width: "100%",
-    padding: "10px 20px",
-    backgroundColor: "#060041",
-    color: "white",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexWrap: "wrap",
-    zIndex: 1000,
-    boxSizing: "border-box",
-  } as React.CSSProperties,
-
-  logo: {
-    margin: 0,
-    fontSize: "1.5rem",
-    whiteSpace: "nowrap",
-    flex: "1",
-    textAlign: "left",
-  } as React.CSSProperties,
 };
 
 export default Navbar;
