@@ -64,3 +64,5 @@ export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({
     </FavoritesContext.Provider>
   );
 };
+
+export default FavoritesProvider;

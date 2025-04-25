@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Sidebar from "./components/Sidebar";
 import "./App.css";
+import FavoritesProvider from "./context/FavoritesContext";
 
 const App: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

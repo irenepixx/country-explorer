@@ -1,6 +1,6 @@
 // src/components/FavoritesList.tsx
 import React from "react";
-import { useFavorites } from "../utils/favoritesContext"; // lo explicamos abajo
+import { useFavorites } from "../context/FavoritesContext"; // lo explicamos abajo
 
 const FavoritesList: React.FC = () => {
   const { favorites, removeFavorite } = useFavorites();
