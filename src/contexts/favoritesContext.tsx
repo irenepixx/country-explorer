@@ -23,7 +23,10 @@ export const useFavorites = () => {
 export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [favorites, setFavorites] = useState<any[]>([]);
+  const [favorites, setFavorites] = useState<Country[]>(() => {
+    const savedFavorites = localStorage.getItem("favorites");
+    return savedFavorites ? JSON.parse(savedFavorites) : [];
+  });
 
   const addFavorite = (country: Country) => {
     if (!favorites.find((fav) => fav.name.common === country.name.common)) {
