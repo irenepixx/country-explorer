@@ -1,0 +1,44 @@
+:root {
+  /* Light mode */
+  --background: #fafafa;
+  --elements: #ffffff;
+  --text: #111517;
+  --text-secondary: #4a4a4a;
+  --primary-color: #2b3945;
+  --input: #858585;
+  --border-color: #ddd;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
