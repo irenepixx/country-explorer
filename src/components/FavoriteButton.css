@@ -1,0 +1,15 @@
+.favorite-button {
+}
+
+.favorite-button:hover {
+.favorite-button:active {
+}
+
+.heart-icon {
+}
+
+.heart-icon.filled {
+}
+
+.favorite-button:hover .heart-icon {
+}
