@@ -3,6 +3,7 @@ import SearchBar from "../components/SearchBar";
 import CountryCard from "../components/CountryCard";
 import Sidebar from "../components/Sidebar";
 import { Country } from "../types/Country";
+import "./Home.css";
 
 const Home: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
