@@ -28,22 +28,38 @@ export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({
     return savedFavorites ? JSON.parse(savedFavorites) : [];
   });
 
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
+
   const addFavorite = (country: Country) => {
-    if (!favorites.find((fav) => fav.name.common === country.name.common)) {
-      setFavorites([...favorites, country]);
-    }
+    setFavorites((prev) => {
+      if (!prev.some((fav) => fav.cca3 === country.cca3)) {
+        return [...prev, country];
+      }
+      return prev;
+    });
   };
 
-  const removeFavorite = (country: Country) => {
-    setFavorites(
-      favorites.filter((fav) => fav.name.common !== country.name.common)
+  const removeFavorite = (countryCode: string) => {
+    setFavorites((prev) =>
+      prev.filter((country) => country.cca3 !== countryCode)
     );
   };
 
+  const isFavorite = (countryCode: string) => {
+    return favorites.some((country) => country.cca3 === countryCode);
+  };
+
+  const value = {
+    favorites,
+    addFavorite,
+    removeFavorite,
+    isFavorite,
+  };
+
   return (
-    <FavoritesContext.Provider
-      value={{ favorites, addFavorite, removeFavorite }}
-    >
+    <FavoritesContext.Provider value={value}>
       {children}
     </FavoritesContext.Provider>
   );
