@@ -10,8 +10,21 @@ interface FavoriteButtonProps {
 }
 
 export const FavoriteButton: React.FC<FavoriteButtonProps> = ({
+  isFavorite,
+  onToggle,
 }) => {
   return (
+    <button
+      className="favorite-button"
+      onClick={onToggle}
+      aria-label={`${isFavorite ? "Remove from" : "Add to"} favorites`}
+    >
+      {isFavorite ? (
+        <FaHeart className="heart-icon filled" />
+      ) : (
+        <FaRegHeart className="heart-icon" />
+      )}
+    </button>
   );
 };
 
