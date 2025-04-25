@@ -2,20 +2,7 @@ import React, { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 import CountryCard from "../components/CountryCard";
 import Sidebar from "../components/Sidebar";
-
-interface Country {
-  name: {
-    common: string;
-  };
-  capital: string[];
-  region: string;
-  languages: { [key: string]: string };
-  currencies: { [key: string]: { name: string; symbol: string } };
-  flags: {
-    png: string;
-  };
-  cca3: string;
-}
+import { Country } from "../types/Country";
 
 const Home: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
