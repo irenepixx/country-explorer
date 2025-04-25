@@ -3,26 +3,20 @@ import SearchBar from "../components/SearchBar";
 import CountryCard from "../components/CountryCard";
 import Sidebar from "../components/Sidebar";
 import React from "react";
+import { useCountries } from "../hooks/useCountries";
+import { useFavorites } from "../context/FavoritesContext";
 import { Country } from "../types/Country";
 import "./Home.css";
 
 const Home: React.FC = () => {
+  const { countries, loading, error, handleSearch, handleFilterChange } =
+    useCountries();
 
+  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
 
-  const addToFavorites = (country: Country) => {
-    setFavorites((prevFavorites) => {
-      if (prevFavorites.find((item) => item.cca3 === country.cca3)) {
-        return prevFavorites;
-      }
-      return [...prevFavorites, country];
-    });
-  };
-
-  useEffect(() => {
-    if (!searchTerm) {
-      setCountries([]);
-      return;
-    }
+  if (loading) {
+    return <div className="loading">Loading countries...</div>;
+  }
 
     const fetchCountries = async () => {
       setLoading(true);
