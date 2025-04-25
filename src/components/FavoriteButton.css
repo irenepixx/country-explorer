@@ -1,15 +1,53 @@
 .favorite-button {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    color: var(--text);
 }
 
 .favorite-button:hover {
+    background-color: var(--shadow);
+    transform: scale(1.1);
+}
+
 .favorite-button:active {
+    transform: scale(0.95);
 }
 
 .heart-icon {
+    font-size: 1.25rem;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        color 0.2s ease;
+    color: var(--text);
+    opacity: 0.8;
 }
 
 .heart-icon.filled {
+    color: #ff6b6b;
+    opacity: 1;
+    animation: popEffect 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .favorite-button:hover .heart-icon {
+    opacity: 1;
+}
+
+@keyframes popEffect {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
