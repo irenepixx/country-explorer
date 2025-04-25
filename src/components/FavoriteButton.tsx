@@ -1,6 +1,7 @@
 import React from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { Country } from "../types/Country";
+import "./FavoriteButton.css";
 
 interface FavoriteButtonProps {
   country: Country;
