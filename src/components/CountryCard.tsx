@@ -23,29 +23,45 @@ export const CountryCard: React.FC<CountryCardProps> = ({
   onCustomList,
 }) => {
   return (
-    <div style={styles.card}>
-      <img src={flagUrl} alt={`${name} flag`} style={styles.flag} />
-
-      <div style={styles.info}>
-        <div style={styles.topLeft}>
-          <h2 style={styles.countryName}>{name}</h2>
-          <p style={styles.capital}>Capital: {capital}</p>
+    <div className="country-card">
+      <div className="flag-container">
+        <img
+          className="flag-img"
+          src={country.flags.png}
+          alt={`Flag of ${country.name.common}`}
+          loading="lazy"
+        />
+      </div>
+      <div className="card-content">
+        <h3 className="country-name">{country.name.common}</h3>
+        <div>
+          <p className="info-item">
+            <span className="info-label">Population:</span>
+            {country.population.toLocaleString()}
+          </p>
+          <p className="info-item">
+            <span className="info-label">Region:</span>
+            {country.region}
+          </p>
+          <p className="info-item">
+            <span className="info-label">Capital:</span>
+            {country.capital?.[0]}
+          </p>
         </div>
-
-        <div style={styles.rightDetails}>
-          <p>Region: {region}</p>
-          <p>Language: {languages.join(", ")}</p>
-          <p>Currency: {currencies.join(", ")}</p>
-        </div>
-
-        <div style={styles.actions}>
-          <button onClick={onFavorite} style={styles.button}>
-            ❤️
-          </button>
-          <button onClick={onCustomList} style={styles.button}>
-            ➕
-          </button>
-        </div>
+      </div>
+      <div className="card-actions">
+        <button
+          className="action-button"
+          /* onClick={handlePlusClick}*/
+          aria-label="Add to list"
+        >
+          <FaPlus />
+        </button>
+        <FavoriteButton
+          country={country}
+          isFavorite={isFavorite}
+          onToggle={onFavorite}
+        />
       </div>
     </div>
   );
