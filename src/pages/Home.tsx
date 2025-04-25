@@ -2,16 +2,12 @@ import React, { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 import CountryCard from "../components/CountryCard";
 import Sidebar from "../components/Sidebar";
+import React from "react";
 import { Country } from "../types/Country";
 import "./Home.css";
 
 const Home: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [countries, setCountries] = useState<Country[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
-  const [favorites, setFavorites] = useState<Country[]>([]);
 
   const addToFavorites = (country: Country) => {
     setFavorites((prevFavorites) => {
