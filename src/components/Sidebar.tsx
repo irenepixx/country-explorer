@@ -8,22 +8,12 @@ interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
   favorites: Country[];
-  lists: {
-    "want-to-visit": Country[];
-    "already-visited": Country[];
-  };
 }
 
-const Sidebar: React.FC<SidebarProps> = ({
-  isOpen,
-  onClose,
-  favorites,
-  lists,
-}) => {
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, favorites }) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
 
-  // Close sidebar when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -35,7 +25,6 @@ const Sidebar: React.FC<SidebarProps> = ({
       }
     };
 
-    // Handle touch gestures
     const handleTouchStart = (e: TouchEvent) => {
       if (isOpen) {
         touchStartX.current = e.touches[0].clientX;
@@ -47,22 +36,18 @@ const Sidebar: React.FC<SidebarProps> = ({
 
       const touchX = e.touches[0].clientX;
       const startX = touchStartX.current;
-      const sidebarWidth = sidebarRef.current?.offsetWidth || 300;
 
-      // If swiping left (close gesture)
       if (startX - touchX > 50) {
         touchStartX.current = null;
         onClose();
       }
     };
 
-    // Add event listeners
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("touchstart", handleTouchStart);
     document.addEventListener("touchmove", handleTouchMove);
 
     return () => {
-      // Clean up
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("touchstart", handleTouchStart);
       document.removeEventListener("touchmove", handleTouchMove);
@@ -120,13 +105,13 @@ const Sidebar: React.FC<SidebarProps> = ({
           </div>
 
           <div className="list-section">
-            <h4>📌 Want to Visit</h4>
-            {/* {renderCountryList(lists["want-to-visit"])} */}
+            <h4>✈️ Want to Visit</h4>
+            {/* here list want to visit */}
           </div>
 
           <div className="list-section">
-            <h4>✈️ Already Visited</h4>
-            {/* {renderCountryList(lists["already-visited"])} */}
+            <h4>📌 Already Visited</h4>
+            {/* here list already visited */}
           </div>
         </div>
       </aside>
