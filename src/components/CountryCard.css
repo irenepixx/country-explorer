@@ -82,4 +82,21 @@
 }
 
 
+@media (max-width: 480px) {
+  .flag-container {
+    height: 140px;
+  }
+
+  .card-content {
+    padding: 1.25rem 1.25rem 1.75rem;
+  }
+
+  .country-name {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .info-item {
+    font-size: 0.8125rem;
+  }
 }
