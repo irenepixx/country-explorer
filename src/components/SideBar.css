@@ -105,3 +105,33 @@
     padding: 0;
     margin: 0;
 }
+
+.favorite-item {
+    margin-bottom: 0.5rem;
+}
+
+.favorite-item a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    text-decoration: none;
+    color: var(--text);
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.favorite-item a:hover {
+    background-color: var(--shadow);
+}
+
+.favorite-flag {
+    width: 32px;
+    height: 20px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.favorite-item span {
+    font-size: 0.875rem;
+}
