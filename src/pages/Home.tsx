@@ -33,7 +33,7 @@ const Home: React.FC = () => {
       <div className="hero-section">
         <h1 className="hero-title">Start exploring</h1>
         <p className="hero-subtitle">
-          Travelers are dreamers who make their desires for adventure a reality.
+          Travelers are dreamers who make their desires for adventure a reality
         </p>
       </div>
       <SearchBar onSearch={handleSearch} onFilterChange={handleFilterChange} />
