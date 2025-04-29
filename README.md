@@ -16,7 +16,7 @@ npm install
 npm run dev
 ```
 
-- On Netlify ...
+- On [Netlify](https://country-explorer-webapp.netlify.app/)
 
 ---
 
@@ -76,7 +76,7 @@ country-explorer/
 
 -**View favorites** in a separate section
 
-To be implemented next:
+➡️ To be implemented next:
 
 - **Change** from light mode to dark mode
 - **Mark** countries **visited**
@@ -100,10 +100,10 @@ This app uses the [RESTCountries API](https://restcountries.com/) to fetch live 
 
 ### 💡 First steps
 
-1. Look for [inspiration](https://countries.petethompson.net/)
-2. Select functionalities: must have and nice to have
-3. Draft a wireframe
-4. Translate the design into code
+1. Looked for [inspiration](https://countries.petethompson.net/)
+2. Selected functionalities: must have and nice to have
+3. Drafted a wireframe
+4. Translated the design into code
 
 
 ### 🎯 Challenges faced and Lessons learned
@@ -113,5 +113,5 @@ As a frontend developer in training, this project helped me gain valuable experi
 - Building a React web app for the first time, which involved learning component-based architecture, state management, and React-specific development workflows
 - Integrating an API for the first time: Learned how to fetch, handle, and display data from a RESTful API, including error handling and asynchronous operations in React
 - Working with Github Desktop, which involved writing more efficient commits, improving version control workflows
-- Deploying a web app on Netlify for the first time
+- Deploying a web app on Netlify for the first time, which involver understanding how to prepare a production-ready build and identifying issues that only appear in production builds
 
