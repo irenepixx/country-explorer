@@ -57,3 +57,24 @@
     font-weight: 700;
     color: var(--text);
 }
+
+.close-button {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+    width: 40px;
+    height: 40px;
+}
+
+.close-button:hover {
+    background-color: var(--shadow);
+}
+
