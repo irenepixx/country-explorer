@@ -8,6 +8,10 @@ interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
   favorites: Country[];
+  lists: {
+    "want-to-visit": Country[];
+    "already-visited": Country[];
+  };
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, favorites }) => {
