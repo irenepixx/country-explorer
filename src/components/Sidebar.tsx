@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { FaTimes } from "react-icons/fa";
+import { Country } from "../types/Country";
+import "./Sidebar.css";
 
 interface SidebarProps {
   isOpen: boolean;
