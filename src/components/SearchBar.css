@@ -225,7 +225,6 @@
     top: 50%;
     transform: translateY(-50%);
     width: 100%;
-    -webkit-appearance: none;
     pointer-events: none;
     background: none;
     outline: none;
