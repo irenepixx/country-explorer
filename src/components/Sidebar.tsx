@@ -14,7 +14,84 @@ interface SidebarProps {
   };
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, favorites }) => {
+const Sidebar: React.FC<SidebarProps> = ({
+  isOpen,
+  onClose,
+  favorites,
+  lists,
+}) => {
+  const sidebarRef = useRef<HTMLDivElement>(null);
+  const touchStartX = useRef<number | null>(null);
+
+  // Close sidebar when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isOpen &&
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node)
+      ) {
+        onClose();
+      }
+    };
+
+    // Handle touch gestures
+    const handleTouchStart = (e: TouchEvent) => {
+      if (isOpen) {
+        touchStartX.current = e.touches[0].clientX;
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!isOpen || touchStartX.current === null) return;
+
+      const touchX = e.touches[0].clientX;
+      const startX = touchStartX.current;
+      const sidebarWidth = sidebarRef.current?.offsetWidth || 300;
+
+      // If swiping left (close gesture)
+      if (startX - touchX > 50) {
+        touchStartX.current = null;
+        onClose();
+      }
+    };
+
+    // Add event listeners
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleTouchStart);
+    document.addEventListener("touchmove", handleTouchMove);
+
+    return () => {
+      // Clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleTouchStart);
+      document.removeEventListener("touchmove", handleTouchMove);
+    };
+  }, [isOpen, onClose]);
+
+  const renderCountryList = (countries: Country[]) => {
+    if (countries.length === 0) {
+      return <p className="empty-message">No countries added yet</p>;
+    }
+
+    return (
+      <ul className="favorites-list">
+        {countries.map((country) => (
+          <li key={country.cca3} className="favorite-item">
+            <Link to={`/country/${country.name.common}`} onClick={onClose}>
+              <img
+                src={country.flags.png}
+                alt={`${country.name.common} flag`}
+                className="favorite-flag"
+              />
+              <span>{country.name.common}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    );
+  };
+
   return (
     <div
       style={{
