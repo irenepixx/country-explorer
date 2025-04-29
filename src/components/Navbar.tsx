@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaMoon, FaSun, FaBars } from "react-icons/fa";
+import { FaMoon, FaSun } from "react-icons/fa";
 import { useFavorites } from "../context/FavoritesContext";
 import Sidebar from "./Sidebar";
 import "./Navbar.css";
@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
               className="sidebar-toggle"
               aria-label="Toggle sidebar"
             >
-              <FaBars />
+              ⭐
             </button>
           </div>
         </div>
