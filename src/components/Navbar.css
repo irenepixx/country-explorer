@@ -1,3 +1,21 @@
+.navbar {
+  background-color: var(--elements);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.navbar-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1.25rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .navbar-title {
   font-size: 1.5rem;
   font-weight: 800;
