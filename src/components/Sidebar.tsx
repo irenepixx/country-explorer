@@ -93,26 +93,44 @@ const Sidebar: React.FC<SidebarProps> = ({
   };
 
   return (
-    <div
-      style={{
-        ...styles.sidebar,
-        transform: isOpen ? "translateX(0)" : "translateX(100%)",
-      }}
-    >
-      <button onClick={onClose} style={styles.closeButton}>
-        ×
-      </button>
+    <>
+      {isOpen && <div className="sidebar-backdrop" onClick={onClose}></div>}
+      <aside
+        ref={sidebarRef}
+        className={`sidebar ${isOpen ? "open" : ""}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="My Lists"
+      >
+        <div className="sidebar-header">
+          <h3>My Lists</h3>
+          <button
+            onClick={onClose}
+            className="close-button"
+            aria-label="Close sidebar"
+          >
+            <FaTimes />
+          </button>
+        </div>
 
-      <h3>❤️ My Lists</h3>
-      <div style={styles.lists}>
-        <h4>⭐ Favorites</h4>
-        <ul></ul>
-        <h4>📌 Go to Next</h4>
-        <ul>{/* here go to next list */}</ul>
-        <h4>✈️ Already Visited</h4>
-        <ul>{/* here already visited list */}</ul>
-      </div>
-    </div>
+        <div className="lists-container">
+          <div className="list-section">
+            <h4>⭐ Favorites</h4>
+            {renderCountryList(favorites)}
+          </div>
+
+          <div className="list-section">
+            <h4>📌 Want to Visit</h4>
+            {/* {renderCountryList(lists["want-to-visit"])} */}
+          </div>
+
+          <div className="list-section">
+            <h4>✈️ Already Visited</h4>
+            {/* {renderCountryList(lists["already-visited"])} */}
+          </div>
+        </div>
+      </aside>
+    </>
   );
 };
 
