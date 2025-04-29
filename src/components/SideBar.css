@@ -135,3 +135,41 @@
 .favorite-item span {
     font-size: 0.875rem;
 }
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 320px;
+    }
+
+    .sidebar-header {
+        padding: 1.25rem;
+    }
+
+    .lists-container {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 85%;
+    }
+
+    .sidebar-header {
+        padding: 1rem;
+    }
+
+    .lists-container {
+        padding: 1rem;
+    }
+
+    .favorite-item a {
+        padding: 0.75rem;
+        min-height: 48px;
+    }
+
+    .close-button {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
