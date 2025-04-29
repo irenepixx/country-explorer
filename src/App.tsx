@@ -1,18 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import { FavoritesProvider } from "./context/FavoritesContext";
+
 import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
 import "./App.css";
-import FavoritesProvider from "./context/FavoritesContext";
 
 const App: React.FC = () => {
   return (
     <FavoritesProvider>
       <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
+        <div className="App">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </div>
       </Router>
     </FavoritesProvider>
   );
