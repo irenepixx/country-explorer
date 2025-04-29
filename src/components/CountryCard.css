@@ -70,4 +70,16 @@
   transition: background 0.2s;
 }
 
+@media (max-width: 1024px) {
+  .country-name {
+    font-size: 1.2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .flag-container {
+    height: 160px;
+  }
+}
+
+
 }
