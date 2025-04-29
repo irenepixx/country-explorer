@@ -41,3 +41,35 @@
     height: 1.2rem;
 }
 
+@media (max-width: 768px) {
+    .nav {
+        padding: 1.25rem 5%;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .theme-toggle {
+        font-size: 0.9rem;
+    }
+
+    .theme-toggle svg {
+        width: 1rem;
+        height: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav {
+        padding: 1rem 5%;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .theme-toggle {
+        font-size: 0.85rem;
+    }
+}
