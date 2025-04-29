@@ -134,40 +134,4 @@ const Sidebar: React.FC<SidebarProps> = ({
   );
 };
 
-const styles = {
-  sidebar: {
-    position: "fixed",
-    top: 0,
-    right: 0,
-    width: "50%",
-    height: "100%",
-    backgroundColor: "#699fc9",
-    borderLeft: "1px  #699fc9",
-    padding: "20px",
-    transition: "transform 1s ease-in-out",
-    zIndex: 1001,
-    overflowY: "auto",
-  } as React.CSSProperties,
-
-  closeButton: {
-    position: "absolute",
-    top: 10,
-    right: 15,
-    fontSize: "24px",
-    background: "none",
-    border: "none",
-    cursor: "pointer",
-    color: "white",
-  } as React.CSSProperties,
-
-  lists: {
-    backgroundColor: "white",
-    borderRadius: "8px",
-    padding: "20px",
-    width: "auto",
-    height: "100%",
-    margin: "20px",
-  } as React.CSSProperties,
-};
-
 export default Sidebar;
