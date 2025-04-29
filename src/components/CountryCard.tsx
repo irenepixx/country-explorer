@@ -2,6 +2,7 @@ import React from "react";
 import { Country } from "../types/Country";
 import { FaPlus } from "react-icons/fa";
 import FavoriteButton from "./FavoriteButton";
+import "./CountryCard.css";
 
 interface CountryCardProps {
   country: Country;
@@ -42,11 +43,7 @@ export const CountryCard: React.FC<CountryCardProps> = ({
         </div>
       </div>
       <div className="card-actions">
-        <button
-          className="action-button"
-          /* onClick={handlePlusClick}*/
-          aria-label="Add to list"
-        >
+        <button className="action-button" aria-label="Add to list">
           <FaPlus />
         </button>
         <FavoriteButton
