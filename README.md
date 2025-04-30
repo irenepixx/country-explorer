@@ -1,5 +1,7 @@
 # 🌍 Country Explorer - Frontend Coding Challenge
 
+![Country Explorer Web App](./src/imgs/countryexplorer.png)
+
 This project is part of a **Frontend Web Developer coding challenge** provided by [Numbero](https://www.numbero.de/). The goal is to build a small React web app that interacts with a public API and demonstrates core frontend skills like state management, API integration, and user interface design.
 
 ---
@@ -7,7 +9,7 @@ This project is part of a **Frontend Web Developer coding challenge** provided b
 ## 🔧 How to access it
 
 - To run it locally
-  
+
 ```bash
 # Install dependencies
 npm install
@@ -70,9 +72,9 @@ country-explorer/
 
 -**Search** for countries using different fields: name, region, capital, population, currencz and language
 
--**Display** results in a clean, user-friendly layout 
+-**Display** results in a clean, user-friendly layout
 
--**Mark countries as favorites** 
+-**Mark countries as favorites**
 
 -**View favorites** in a separate section
 
@@ -105,7 +107,6 @@ This app uses the [RESTCountries API](https://restcountries.com/) to fetch live 
 3. Drafted a wireframe
 4. Translated the design into code
 
-
 ### 🎯 Challenges faced and Lessons learned
 
 As a frontend developer in training, this project helped me gain valuable experience in:
@@ -114,4 +115,3 @@ As a frontend developer in training, this project helped me gain valuable experi
 - Integrating an API for the first time: Learned how to fetch, handle, and display data from a RESTful API, including error handling and asynchronous operations in React
 - Working with Github Desktop, which involved writing more efficient commits, improving version control workflows
 - Deploying a web app on Netlify for the first time, which involver understanding how to prepare a production-ready build and identifying issues that only appear in production builds
-
