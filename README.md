@@ -90,7 +90,7 @@ This app uses the [RESTCountries API](https://restcountries.com/) to fetch live 
 ### 🛠️ Technologies Used
 
 - **React**
-- **JavaScript**
+- **JavaScript** and **TypeScript**
 - **CSS**
 - **RESTCountries API**
 - **Generative Artificial Intelligence** for specific purposes
